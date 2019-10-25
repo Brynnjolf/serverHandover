@@ -1,0 +1,93 @@
+* {
+    font-family: 'montserrat', 'serif';
+    list-style: none;
+}
+
+.nav-item {
+    margin-right: 5rem;
+}
+
+main {
+    margin-top: 56px;
+    position: relative;
+}
+// Input form section
+.form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10% 10% 5%;
+    & > * {
+        margin: 5px;
+    }
+    h1 {
+        text-align: center;
+        font-size: 4em;
+        margin: 0 0 0.5em;
+    }
+    input {
+        width: 80%;
+        padding: 3px;
+    }
+    .generate {
+        padding: 1% 2%;
+    }
+
+}
+// Risk profile section
+.profile-boxes {
+    text-align: center;
+    position: relative;
+    width: 85%;
+    margin: auto;
+    .marg {
+        margin: 1em 0;
+    }
+    .content {
+        padding: 1em;
+        background-color: #40C7C0;
+        hr {
+            border-top: 1px solid rgba(0, 0, 0, 0.29);
+            width: 70%;
+        }
+        h1 {
+            color: white;
+        }
+        // Popup setup
+        .popup {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background-color: black;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.7s;
+            p {
+                margin: 0 1em;
+            }
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// Sin Stock section
+.sin-stock {
+    text-align: center;
+    color: white;
+    padding: 2em;
+    background-color: #3B82A1;
+    width: 82%;
+    margin: 50px auto 0;
+    hr {
+        border-color: rgba(255, 255, 255, 0.222);
+        width: 50%;
+        border-width: 0.7px;
+    }
+}

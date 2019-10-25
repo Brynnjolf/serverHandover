@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'montserrat', 'serif'; }
+
+.nav-item {
+  margin-right: 5rem; }
+
+main {
+  line-height: 3;
+  margin-top: 56px;
+  text-align: center;
+  overflow: hidden; }
+
+#banner {
+  padding: 15%;
+  background: url("./background.jpg") #071F4E;
+  background-size: cover; }
+  #banner h1 {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold; }
+  #banner p {
+    color: white; }
+  #banner button {
+    font-size: 1.5rem;
+    background-color: #82DECD;
+    color: rgba(0, 0, 0, 0.783);
+    padding: 0.2rem 1rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    outline: none;
+    transition: background-color 0.5s, color 0.5s; }
+    #banner button:hover {
+      background-color: #bfeee5;
+      color: black; }
+
+#guide {
+  position: relative; }
+  #guide .row {
+    padding: 10% 5%; }
+  #guide div {
+    padding: auto 5%;
+    list-style-position: inside; }
+    #guide div h1 {
+      margin-bottom: 5%;
+      font-weight: bold;
+      font-size: 10rem;
+      color: #071F4E; }
+    #guide div h2 {
+      font-weight: bold; }
+    #guide div ul {
+      text-align: left;
+      margin-left: 10%; }
+  #guide .step {
+    text-align: left;
+    margin-top: 5rem; }
+    #guide .step p {
+      line-height: 1.7; }
+    #guide .step hr {
+      border-top: 2px solid #D4D200; }
+  #guide .shape {
+    position: absolute;
+    z-index: -100; }
+    #guide .shape.arrow {
+      font-family: Arial, Helvetica, sans-serif;
+      color: rgba(130, 222, 205, 0.7);
+      top: 15%;
+      right: 25%;
+      font-weight: bold;
+      transform: scale(20, 30); }
+    #guide .shape.plus {
+      top: 25%;
+      right: 15%;
+      color: rgba(7, 31, 78, 0.5);
+      transform: scale(10); }
+    #guide .shape.times {
+      top: 55%;
+      left: 10%;
+      font-weight: bold;
+      color: rgba(130, 222, 205, 0.6);
+      transform: scale(20); }
+    #guide .shape.divide {
+      top: 85%;
+      left: 50%;
+      font-weight: bold;
+      color: rgba(212, 210, 0, 0.3);
+      transform: scale(30); }
+    #guide .shape.dollar {
+      top: 50%;
+      left: 50%;
+      font-weight: bold;
+      color: rgba(130, 222, 205, 0.06);
+      transform: scale(100); }
+
+/*# sourceMappingURL=main.css.map */

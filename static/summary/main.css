@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'montserrat', 'serif'; }
+
+main {
+  margin-top: 56px; }
+
+.nav-item {
+  margin-right: 5rem; }
+
+body {
+  color: rgba(38, 38, 38, 0.729); }
+
+#recommendation {
+  padding: 5% 10%;
+  text-align: center; }
+  #recommendation .title {
+    margin: 5%;
+    font-size: 2rem;
+    font-weight: bold; }
+  #recommendation .rec {
+    font-size: 2rem; }
+  #recommendation .fraction {
+    font-weight: lighter;
+    color: rgba(74, 74, 74, 0.407); }
+  #recommendation hr {
+    width: 30%;
+    border-top: 4px solid #40C7C0;
+    margin: 0 0 0;
+    margin: auto; }
+  #recommendation span {
+    font-weight: bold; }
+
+.ratios {
+  padding: 2em; }
+  .ratios h1 {
+    font-size: 1.4em;
+    font-weight: bold; }
+  .ratios p {
+    text-align: center;
+    margin: 0.7em 0; }
+  .ratios hr {
+    margin: 1em 0;
+    border-color: rgba(0, 0, 0, 0.057); }
+
+.company-profile {
+  padding: 2rem;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.05), 0px -1px 10px rgba(0, 0, 0, 0.071); }
+  .company-profile h1 {
+    font-size: 1.4em;
+    font-weight: bold; }
+  .company-profile .row {
+    flex-flow: column;
+    padding: 2em; }
+    .company-profile .row h2 {
+      margin: 15px 0 15px;
+      font-size: 1em;
+      font-weight: bold;
+      color: rgba(38, 38, 38, 0.729);
+      line-height: 1.2; }
+    .company-profile .row p {
+      font-weight: lighter;
+      color: rgba(74, 74, 74, 0.407);
+      line-height: 1.6; }
+
+.directors {
+  padding: 2em; }
+  .directors h1, .directors h3 {
+    color: rgba(38, 38, 38, 0.729); }
+  .directors h1 {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 2em; }
+  .directors h3 {
+    font-size: 1em;
+    font-weight: bold; }
+  .directors p {
+    color: rgba(74, 74, 74, 0.407); }
+  .directors .row {
+    padding: 0.2em 0 0; }
+
+footer {
+  padding-bottom: 5em;
+  text-align: center; }
+  footer h1 {
+    color: rgba(0, 0, 0, 0.146);
+    font-size: 1.2em;
+    margin-bottom: 1em; }
+  footer::before {
+    content: '';
+    display: block;
+    width: 80%;
+    border-top: 1px solid rgba(0, 0, 0, 0.105);
+    margin: auto;
+    padding: 1em; }
+
+.files .col {
+  padding: 4.5%;
+  text-align: center; }
+  .files .col button {
+    background-color: #B5386D;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.5s, color 0.5s; }
+    .files .col button:hover {
+      background-color: #E6B1c8;
+      color: #181818; }
+
+@media (min-width: 554px) {
+  .ratios, .company-profile, .directors {
+    padding: 3em; }
+
+  .price-graph {
+    height: 450px; } }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,226 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script> <!--chart.js-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet"> <!--MontSerrat-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'summary/main.css'%}">
+    <title>Company Summary</title>
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light scrolling-navbar">
+        <a class="navbar-brand" href="#">Investment Analysis System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/filter">Filter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/table">Price Data</a>
+                </li>   
+            </ul>
+            </form>
+        </div>
+    </nav>
+   
+
+    <main>
+        <!--Recommendation Score-->
+        <section id='recommendation'>
+            <h1 class='title'>{{company.name}}</h1>
+            <h1 class='rec'>Recomendation score: <span class='score'>{{summary.score}}</span> <span class='fraction'>/ 100</span></h1>
+            <hr>
+        </section>
+    
+        <canvas width='70%' height='20px' id='priceChart'></canvas>
+        <!-- key ratios section -->
+        <section class="ratios container-fluid">
+            <h1 style="text-align: center">Key Ratios</h1>
+            <hr>
+            <div class="row">
+                {%load humanize%}
+                <p class="col-sm"><strong>Market Cap:&nbsp;</strong>${{summary.market_cap|intcomma}}</p>
+                <p class="col-sm"><strong>ROE:&nbsp;</strong> {{ratios.return_On_Equity|floatformat:2}}</p>
+            </div>
+            <div class="row">
+                <p class="col-sm"><strong>EPS:&nbsp;</strong> {{ratios.ePS|floatformat:2}}</p>
+                <p class="col-sm"><strong>NTA:&nbsp;</strong> {{ratios.nTA|floatformat:2}}</p>
+            </div>
+            <div class="row">
+                <p class="col-sm"><strong>DPS:&nbsp;</strong> {{ratios.net_DPS|floatformat:2}}</p>
+                <p class="col-sm"><strong>Beta:&nbsp;</strong> {{ratios.beta_Value|floatformat:2}}</p>
+            </div>
+            <div class="row">
+                <p class="col-sm"><strong>Price NTA:&nbsp;</strong> {{ratios.price_NTA|floatformat:2}}</p>
+                <p class="col-sm"><strong>Net Yield:&nbsp;</strong> {{ratios.net_Yield|floatformat:2}}</p>
+            </div>
+            <div class="row">
+                <p class="col-sm"><strong>Sharpe:&nbsp;</strong> {{ratios.sharpe|floatformat:2}}</p>
+                <p class="col-sm"><strong>Debt Equity:&nbsp;</strong> {{ratios.debt_Equity|floatformat:2}}</p>
+            </div>
+    
+        </section>
+    
+        <!-- Key Ratio Analysis -->
+        <section class="ratio-analysis container-fluid">
+            <h1>Key Ratio Analysis</h1>
+            <table class="table">
+                    <thead>
+                      <tr>
+                        <th style='width: 20%' scope="col">Name</th>
+                        <th scope="col">Ratio</th>
+                        <th scope="col">Score</th>
+                        <th style='width: 40%' scope="col">Analysis</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Net Yield</th>
+                        <td>{{ratios.net_Yield|floatformat:2}}%</td>
+                        <td>{{indices.netYield|floatformat:0}}</td>
+                        <td>Net Yield is the dividend received in relation to the share price after all expenses are removed. {{company.ticker}} provides {{ratios.net_Yield|floatformat:2}}% return relative to the share price. This means that for every $1 dollar invested, a return of {{ratios.net_Yield|floatformat:2}} cents can be gained. This is higher than {{indices.netYield|floatformat:0}}% of companies in the NZX. </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Sharpe Ratio</th>
+                        <td>{{ratios.sharpe|floatformat:2}}%</td>
+                        <td>{{indices.sharpe|floatformat:0}}</td>
+                        <td>Sharpe Ratio is used to help investors understand the return of an investment compared to its risk. The Sharpe Ratio for {{company.ticker}} is higher than {{indices.sharpe|floatformat:0}}% of companies in the NZX. </td></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Return on Equity</th>
+                        <td>{{ratios.return_On_Equity|floatformat:2}}</td>
+                        <td>{{indices.ROE|floatformat:0}}</td>
+                        <td>ROE is used to measure how effectively management is using a company’s assets to create profits. This means that for every $1 dollar of equity, ${{ratios.return_On_Equity|floatformat:2}} of profits can be generated. The ROE for {{company.ticker}} is higher than {{indices.ROE|floatformat:0}}% of companies on the NZX.
+                      </tr>
+                      <tr>
+                        <th scope="row">Debt Equity</th>
+                        <td>{{ratios.debt_Equity|floatformat:2}}</td>
+                        <td>{{indices.DE|floatformat:0}}</td>
+                        <td>Debt/Equity reflects the ability of shareholder equity to cover all outstanding debts in the event of a business downturn.
+                            {{company.ticker}} has ${{ratios.debt_Equity|floatformat:2}} of debt for every $1 of equity. This is lower than {{indices.DE|floatformat:0}}% of companies on the NZX.
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+        </section>
+        
+
+        <!-- Company Profile -->
+        <section class="company-profile container-fluid">
+            <h1 style="text-align: center">Company Profile</h1>
+            <div class="row">
+                    <h2>Overview</h2>
+                    <p>{{profile.overview}}</p>
+            </div>
+            <div class="row">
+                    <h2>Performance</h2>
+                    <p>{{profile.performance}}</p>
+            </div>
+            <div class="row">
+                    <h2>Outlook</h2>
+                    <p>{{profile.outlook}}</p>
+            </div>
+            <div class="row">
+                    <h2>Description</h2>
+                    <p>{{profile.description}}</p>
+            </div>
+            
+        </section>
+    
+        <!-- TODO: Income statement Section -->
+        <section class="income container-fluid">
+            <div class="row">
+    
+            </div>
+        </section>
+    
+    
+        <!-- Directors section -->
+        <section class="directors container-fluid">
+            <h1 style="text-align: center">Directors</h1>
+            <!-- Loop through directors queryse. Create a row and two columns for each director to ensure structure is tidy -->
+            {%for d in directors%}
+            <!-- Set name and role labels during the first loop iteration -->
+            {%if forloop.first%}
+            <!-- Column labels  -->
+            <div class="row">
+                <div class="col">
+                    <h3>Name</h3>
+                </div>
+                <div class="col">
+                    <h3>Role</h3>
+                </div>
+            </div>
+            {% endif %}
+            <!-- Create a row and two cols -->
+            <div class="row">
+                <div class="col">
+                    <p>{{d.director_name}}</p>
+                </div>
+    
+                <div class="col">
+                    <p>{{d.director_role}}</p>
+                </div>
+            </div>
+            {%endfor%}
+        </section>
+
+        <section class='files container'>
+            <h3>Additional Information</h3>
+            <hr>
+            <div class='row'>
+                <div class="col">
+                    <p>The Tear Sheet provides an overview of a company's financial information, over a shorter accounting period</p>
+                    <button onclick='tearSheet()'>Download Tear Sheet</button>
+                </div>
+                <div class="col">
+                    <p>The Annual Report provides a comprehensive report on a company's activities over a financial year</p>
+                    <button onclick='annuaReportl()'>Download Annual Report</button>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer Sections -->
+    <footer>
+        <h1>An MCS Enterprise</h1>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md">
+                    <a href="/">Home</a>
+                </div>
+                <div class="col-md">
+                    <a href="#">About</a>
+                </div>
+                <div class="col-md">
+                    <a href="/">Team</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <!-- Bootstrap Javascript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--Initialise price set globally-->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="{% static 'summary/main.js'%}"></script>
+</body>
+</html>

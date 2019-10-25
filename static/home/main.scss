@@ -1,0 +1,124 @@
+$dark-blue: #071F4E;
+$light-blue: #82DECD;
+$mustard: #D4D200;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'montserrat', 'serif';
+}
+
+.nav-item {
+    margin-right: 5rem;
+}
+
+main {
+    line-height: 3;
+    margin-top: 56px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#banner {
+    padding: 15%;
+    background: url('./background.jpg') $dark-blue;
+    background-size: cover;
+    h1 {
+        font-size: 2rem;
+        color: white;
+        font-weight: bold;
+    }
+    p {
+        color: white;
+    }
+    button {
+        font-size: 1.5rem;
+        background-color: $light-blue;
+        color: rgba(0, 0, 0, 0.783);
+        padding: 0.2rem 1rem;
+        border-radius: 2rem;
+        font-weight: bold;
+        outline: none;
+        transition: background-color 0.5s, color 0.5s;
+        &:hover {
+            background-color: lighten($light-blue, 15%);
+            color: black;
+        }
+    }
+}
+
+#guide {
+    position: relative;
+
+    .row {
+        padding: 10% 5%;
+    }
+    div {
+        padding: auto 5%;
+        list-style-position: inside;
+        h1 {
+            margin-bottom: 5%;
+            font-weight: bold;
+            font-size: 10rem;
+            color: $dark-blue;
+        }
+        h2 {
+            font-weight: bold;
+        }
+        ul {
+            text-align: left;
+            margin-left: 10%;
+        }
+    }
+    .step {
+        text-align: left;
+        margin-top: 5rem;
+        p {
+            line-height: 1.7;
+        }
+        hr {
+            border-top: 2px solid $mustard;
+        }
+    }
+
+    // Shapes 
+    .shape {
+        position: absolute;
+        z-index: -100;
+        &.arrow {
+            font-family: Arial, Helvetica, sans-serif;
+            color: transparentize($light-blue, 0.3);
+            top: 15%;
+            right: 25%;
+            font-weight: bold;
+            transform: scale(20, 30);
+        }
+        &.plus {
+            top: 25%;
+            right: 15%;
+            color: transparentize($dark-blue, 0.5);
+            transform: scale(10);
+        }
+        &.times {
+            top: 55%;
+            left: 10%;
+            font-weight: bold;
+            color: transparentize($light-blue, 0.4);
+            transform: scale(20);
+        }
+        &.divide {
+            top: 85%;
+            left: 50%;
+            font-weight: bold;
+            color: transparentize($mustard, 0.7);
+            transform: scale(30);
+        }
+        &.dollar {
+            top: 50%;
+            left: 50%;
+            font-weight: bold;
+            color: transparentize($color: $light-blue, $amount: 0.94);
+            transform: scale(100);
+        }
+    }
+}

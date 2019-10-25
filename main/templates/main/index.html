@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet"> <!--MontSerrat-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static 'home/main.css'%}">
+    <title>Home Page</title>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light scrolling-navbar">
+            <a class="navbar-brand" href="#">Investment Analysis System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/filter">Filter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/table">Company Search</a>
+                    </li>   
+                </ul>
+                </form>
+            </div>
+    </nav>
+
+    <main>
+        <section id="banner">
+            <h1>Deciding Where To Invest Can Be Difficult</h1>
+            <p>Let's Make It Simple</p>
+            <button onclick="location.href='/filter'">Start Now</button>
+        </section>
+        <section id="guide">
+            <span class="shape arrow">></span>
+            <span class="shape plus">+</span>
+            <span class="shape colon">:</span>
+            <span class="shape times">x</span>
+            <span class="shape divide">/</span>
+            <span class="shape dollar">$</span>
+            <div class="container-fluid">
+                <!-- First step -->
+                <div class="row">
+                    <div class="col-sm step">
+                        <h2>Set Your Preferences</h2>
+                        <hr>
+                        <p>Find a Company That Matches Your Requirements With 3 Simple Settings</p>
+                    </div>
+                    <div class="col-sm">
+                        <h1>01</h1>
+                        <ul>
+                            <li>Define Risk Profile</li>
+                            <li>Select Specific Sector Or Index</li>
+                            <li>Blacklist Stocks That Don't Align With You</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Second Step -->
+                <div class="row">
+                    <div class="col-sm step">
+                        <h2>Choose From The Best</h2>
+                        <hr>
+                        <p>All companies listed are a part of the S&P NZX50</p>
+                    </div>
+                    <div class="col-sm">
+                        <h1>02</h1>
+                        <ul>
+                            <li>Define Risk Profile</li>
+                            <li>Select Specific Sector Or Index</li>
+                            <li>Blacklist Stocks That Don't Align With You</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Third step -->
+                <div class="row">
+                    <div class="col-sm step">
+                        <h2>Simplify Financial Jargon</h2>
+                        <hr>
+                        <p>Don't let complexity get in the way of important decisions</p>
+                    </div>
+                    <div class="col-sm">
+                        <h1>03</h1>
+                        <ul>
+                            <li>Recommendation Score</li>
+                            <li>Key Ratios Interpretation And Analysis</li>
+                            <li>Better Investment Decisions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p><a href="#">Back To Top</a></p>
+        </footer>
+    </main>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'montserrat', 'serif'; }
+
+.nav-item {
+  margin-right: 5rem; }
+
+main {
+  margin-top: 56px; }
+
+.table-container {
+  margin: 10% 5%; }
+  .table-container h1 {
+    margin: 1% auto; }
+
+/*# sourceMappingURL=table.css.map */
