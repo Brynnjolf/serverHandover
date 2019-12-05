@@ -1,4 +1,4 @@
-Django==2.2.4
+Django==2.2.8
 lxml==4.4.0
 numpy==1.17.0
 psycopg2==2.8.3
